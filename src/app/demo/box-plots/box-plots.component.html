@@ -1,7 +1,19 @@
 <div>
-    <plotly-plot [data]="boxPlot.data" [layout]="boxPlot.layout" [revision]="0" [debug]="debug" [useResizeHandler]="useResizeHandler"></plotly-plot>
-    <p>&nbsp;</p>
-    <plotly-plot [data]="horizontalBoxPlot.data" [layout]="horizontalBoxPlot.layout" [revision]="0" [debug]="debug" [useResizeHandler]="useResizeHandler"></plotly-plot>
-    <p>&nbsp;</p>
-    <plotly-plot [data]="groupedBoxPlot.data" [layout]="groupedBoxPlot.layout" [revision]="0" [debug]="debug" [useResizeHandler]="useResizeHandler"></plotly-plot>
+	<ul style="padding-left: 15px">
+		<li>Click button to hide plot</li>
+		<li>Resize window</li>
+		<li>Observe console for errors</li>
+	</ul>
+
+	<button (click)="show = !show" class="button">Hide/Show Plot</button>
+
+
+	<div style="flex-direction: row; box-sizing: border-box; display: flex; align-content: space-between"> 
+		<div style="width: 100%">
+		    <plotly-plot *ngIf="show" [data]="boxPlot.data" [layout]="boxPlot.layout" [config]="boxPlot.config" [revision]="0" [debug]="debug" [useResizeHandler]="useResizeHandler"></plotly-plot>
+		</div>
+		<div style="width: 100%">
+		    <plotly-plot *ngIf="show" [data]="boxPlot.data" [layout]="boxPlot.layout" [config]="boxPlot.config" [revision]="0" [debug]="debug" [useResizeHandler]="useResizeHandler"></plotly-plot>
+		</div>
+	</div>
 </div>
